@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kenish's Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+  <div class="hero fade-in">
+    <h1>I am <span>Kenish Thapa</span> - </h1>
+    <h1>an aspiring <span>DevOps Engineer</span></h1>
+    <p>CLOUD · CI/CD · IAC</p>
+    <a href="#projects" class="btn">View Projects</a>
+  </div>
+</header>
+
+<section class="fade-in">
+  <h2>About Me</h2>
+  <p>I design, build, and maintain scalable infrastructure using modern DevOps practices.</p>
+</section>
+
+<section class="fade-in">
+  <h2>Tech Stack</h2>
+  <div class="grid">
+    <div class="card"><h3>CI / CD</h3><p>Jenkins, GitHub Actions, GitLab CI</p></div>
+    <div class="card"><h3>Containers</h3><p>Docker, Docker Compose, Kubernetes</p></div>
+    <div class="card"><h3>Cloud</h3><p>AWS</p></div>
+    <div class="card"><h3>IaC</h3><p>Terraform, CloudFormation</p></div>
+  </div>
+</section>
+
+<section class="fade-in">
+  <h2>Terminal</h2>
+  <div class="terminal" id="terminal">
+    <span class="prompt">$</span>&nbsp;<span id="command"></span><span class="cursor"></span>
+  </div>
+</section>
+
+<section id="projects" class="fade-in">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card"><h3>CI/CD Pipeline</h3><p>Jenkins + Docker + AWS</p></div>
+    <div class="card"><h3>Kubernetes Platform</h3><p>Production-grade K8s cluster</p></div>
+  </div>
+</section>
+
+<footer class="fade-in">
+  <div class="socials">
+    <a href="https://github.com/itsknyy" target="_blank" aria-label="GitHub"><i data-lucide="github"></i></a>
+    <a href="https://linkedin.com/in/itskenish" target="_blank" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+  </div>
+  <div class="copyright">©2026 Kenish</div>
+</footer>
+
+</body>
+</html>
