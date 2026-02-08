@@ -1,24 +1,64 @@
+/* ================= ROOT VARIABLES ================= */
 :root {
+  /* Main background color of the website */
   --bg:#0a0d12;
+
+  /* Card background color */
   --card:#0f141c;
+
+  /* Terminal section background */
   --terminal:#05070b;
+
+  /* Primary text color */
   --text:#e6e8eb;
+
+  /* Muted / secondary text color */
   --muted:#8b93a1;
+
+  /* Accent color used for buttons, links, highlights */
   --accent:#16a34a;
-  --accent-soft:rgba(22,163,74,.25);
 }
 
-* { box-sizing:border-box; margin:0; padding:0; }
+/* ================= CSS RESET ================= */
+* {
+  /* Ensures padding & border are included in element width */
+  box-sizing:border-box;
 
+  /* Remove default browser margin */
+  margin:0;
+
+  /* Remove default browser padding */
+  padding:0;
+}
+
+/* ================= BODY ================= */
 body {
+  /* Apply Inter font across the site */
   font-family:'Inter',sans-serif;
+
+  /* Website background color */
   background:var(--bg);
+
+  /* Default text color */
   color:var(--text);
+
+  /* Better readability */
   line-height:1.6;
 }
 
-a { color:var(--accent); text-decoration:none; position:relative; }
+/* ================= LINKS ================= */
+a {
+  /* Accent color for links */
+  color:var(--accent);
 
+  /* Remove default underline */
+  text-decoration:none;
+
+  /* Needed for custom underline animation */
+  position:relative;
+}
+
+/* Animated underline (hidden by default) */
 a::after {
   content:"";
   position:absolute;
@@ -27,96 +67,254 @@ a::after {
   height:2px;
   width:100%;
   background:var(--accent);
+
+  /* Hide underline initially */
   transform:scaleX(0);
   transform-origin:left;
+
+  /* Smooth animation */
   transition:transform .35s ease;
 }
 
-.btn::after { display:none; }
-a:hover::after { transform:scaleX(1); }
+/* Show underline on hover */
+a:hover::after {
+  transform:scaleX(1);
+}
 
+/* ================= BUTTON ================= */
+.btn {
+  /* Space above button */
+  margin-top:2rem;
+
+  /* Allows padding & transform */
+  display:inline-block;
+
+  /* Button size */
+  padding:.85rem 1.8rem;
+
+  /* Fully rounded pill shape */
+  border-radius:999px;
+
+  /* Button background */
+  background:var(--accent);
+
+  /* Text color */
+  color:#000;
+
+  /* Slightly bold text */
+  font-weight:500;
+
+  /* Smooth hover effects */
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+/* Disable underline animation for button */
+.btn::after {
+  display:none;
+}
+
+/* Button hover animation */
+.btn:hover {
+  /* Lift effect */
+  transform:translateY(-3px);
+
+  /* Brighter green on hover */
+  background:#22c55e;
+
+  /* Soft glow shadow */
+  box-shadow:0 12px 28px rgba(22,163,74,.35);
+}
+
+/* ================= HEADER ================= */
 header {
+  /* Full screen height */
   min-height:100vh;
+
+  /* Center content vertically */
   display:flex;
   align-items:center;
+
+  /* Center content horizontally */
   justify-content:center;
+
+  /* Center text */
   text-align:center;
+
+  /* Space on smaller screens */
   padding:2rem;
 }
 
-.hero h1 { font-size:clamp(2.5rem,5vw,4rem); font-weight:600; }
-.hero span { color:var(--accent); }
-.hero p { margin-top:1rem; color:var(--muted); }
-
-.btn {
-  margin-top:2rem;
-  display:inline-block;
-  padding:.8rem 1.6rem;
-  border-radius:999px;
-  background:var(--accent);
-  color:#000;
-  font-weight:500;
-  transition:transform .25s ease, box-shadow .3s ease, filter .25s ease;
+/* Hero heading style */
+.hero h1 {
+  font-size:clamp(2.5rem,5vw,4rem);
+  font-weight:600;
 }
 
-.btn:hover {
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(0,0,0,.35);
-  filter:brightness(1.05);
+/* Highlighted words */
+.hero span {
+  color:var(--accent);
 }
 
-section { max-width:1100px; margin:0 auto; padding:5rem 2rem; }
+/* Hero subtitle */
+.hero p {
+  margin-top:1rem;
+  color:var(--muted);
+}
 
+/* ================= SECTIONS ================= */
+section {
+  /* Limit width for readability */
+  max-width:1100px;
+
+  /* Center section */
+  margin:0 auto;
+
+  /* Vertical spacing */
+  padding:5rem 2rem;
+}
+
+/* ================= SECTION TITLES ================= */
 h2 {
   font-size:clamp(2rem,3.5vw,2.6rem);
   font-weight:600;
+
+  /* Needed for underline animation */
   position:relative;
   display:inline-block;
+
   margin-bottom:1.25rem;
+  transition:color .3s ease;
 }
 
+/* Underline animation */
 h2::before {
   content:"";
   position:absolute;
   left:0;
-  bottom:-2px;
-  height:2px;
-  width:100%;
+  bottom:-6px;
+  height:3px;
+  width:0;
   background:var(--accent);
-  transform:scaleX(0.15);
-  transform-origin:left;
-  transition:transform .45s ease;
+  transition:width .35s ease;
 }
 
-h2.revealed:hover::before { transform:scaleX(1); }
+/* Title hover color */
+h2:hover {
+  color:var(--accent);
+}
 
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; }
+/* Expand underline on hover */
+h2:hover::before {
+  width:100%;
+}
+
+/* ================= GRID & CARDS ================= */
+.grid {
+  /* Responsive grid layout */
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1.5rem;
+}
 
 .card {
   background:var(--card);
   padding:1.8rem;
   border-radius:16px;
+
+  /* Subtle border */
   border:1px solid rgba(255,255,255,.05);
+
+  position:relative;
+
+  /* Hover animation */
   transition:transform .25s ease, box-shadow .3s ease;
 }
 
-.card:hover { transform:translateY(-6px); box-shadow:0 16px 32px rgba(0,0,0,.4); }
+/* Card hover effect */
+.card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 16px 32px rgba(0,0,0,.4);
+}
 
+/* ================= PROJECT CARD ================= */
+.project-card {
+  /* Prevent overflow during hover animation */
+  overflow:hidden;
+}
+
+/* Fade out title & text on hover */
+.project-card > h3,
+.project-card > p {
+  transition:opacity .2s ease;
+}
+
+/* Project description text styling */
+.project-card > p {
+  font-size:0.9rem;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.project-card:hover > h3,
+.project-card:hover > p {
+  opacity:0;
+}
+
+/* Hover overlay container */
+.project-hover {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transition:opacity .2s ease;
+}
+
+/* Show GitHub button on hover */
+.project-card:hover .project-hover {
+  opacity:1;
+}
+
+/* GitHub link button */
+.github-link {
+  font-size:.9rem;
+  padding:.45rem 1.1rem;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.25);
+  color:var(--text);
+}
+
+.github-link::after {
+  display:none;
+}
+
+.github-link:hover {
+  border-color:var(--accent);
+  color:var(--accent);
+}
+
+/* ================= TERMINAL ================= */
 .terminal {
   background:var(--terminal);
   font-family:monospace;
   border-radius:14px;
   padding:1.5rem;
   height:120px;
+
+  /* Vertically center content */
   display:flex;
   align-items:center;
-  overflow:hidden;
 }
 
-.prompt { color:var(--accent); }
+/* Terminal prompt symbol */
+.prompt {
+  color:var(--accent);
+}
 
+/* Blinking cursor */
 .cursor {
-  width:0.65em;
+  width:.65em;
   height:1.1em;
   margin-left:2px;
   background:var(--accent);
@@ -124,10 +322,72 @@ h2.revealed:hover::before { transform:scaleX(1); }
   animation:blink 1.2s steps(1) infinite;
 }
 
-@keyframes blink { 50% { opacity:0; } }
+/* Cursor blink animation */
+@keyframes blink {
+  50% { opacity:0; }
+}
 
-.fade-in { opacity:0; transform:translateY(20px); transition:.6s ease; }
-.fade-in.visible { opacity:1; transform:none; }
+/* ================= FADE-IN ANIMATION ================= */
+.fade-in {
+  opacity:0;
+  transform:translateY(20px);
+  transition:.6s ease;
+}
 
-.socials { display:flex; justify-content:center; gap:1.5rem; margin-bottom:1rem; }
-.copyright { text-align:center; color:var(--muted); font-size:.9rem; }
+.fade-in.visible {
+  opacity:1;
+  transform:none;
+}
+
+/* ================= FOOTER ================= */
+.site-footer {
+  padding:3rem 2rem 2rem;
+  text-align:center;
+}
+
+/* Footer icons row */
+.footer-icons {
+  display:flex;
+  justify-content:center;
+  gap:1.5rem;
+  margin-bottom:1rem;
+}
+
+.footer-icons a {
+  color:var(--accent);
+}
+
+.footer-icons svg {
+  width:22px;
+  height:22px;
+}
+
+/* Footer text container */
+.footer-meta {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.4rem;
+}
+
+/* Copyright text */
+.footer-copy {
+  font-size:.9rem;
+  color:var(--muted);
+}
+
+/* AI badge */
+.footer-ai {
+  display:flex;
+  align-items:center;
+  gap:.35rem;
+  font-size:.75rem;
+  color:var(--muted);
+  opacity:.85;
+}
+
+.footer-ai svg {
+  width:14px;
+  height:14px;
+  stroke:var(--muted);
+}

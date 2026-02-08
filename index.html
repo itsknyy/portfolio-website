@@ -1,62 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Root HTML document, language set to English for accessibility & SEO -->
+
 <head>
+  <!-- Character encoding: supports all modern characters & symbols -->
   <meta charset="UTF-8" />
+
+  <!-- Makes the site responsive on mobile & different screen sizes -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Title shown in browser tab -->
   <title>Kenish's Portfolio</title>
 
+  <!-- Google Font (Inter) for clean modern typography -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- External CSS file for styling the website -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Lucide Icons library (used for GitHub, LinkedIn, wand icon etc.) -->
+  <!-- 'defer' ensures script loads AFTER HTML is parsed -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+  <!-- Your custom JavaScript file (animations, terminal effect, icons init) -->
   <script src="script.js" defer></script>
 </head>
+
 <body>
 
+<!-- ================= HERO / HEADER SECTION ================= -->
 <header>
+  <!-- Hero container with fade-in animation -->
   <div class="hero fade-in">
-    <h1>I am <span>Kenish Thapa</span> - </h1>
+
+    <!-- Main intro heading -->
+    <h1>I am <span>Kenish Thapa</span> -</h1>
+
+    <!-- Second line describing your role -->
     <h1>an aspiring <span>DevOps Engineer</span></h1>
-    <p>CLOUD · CI/CD · IAC</p>
+
+    <!-- Short skills tagline -->
+    <p>CLOUD · CI/CD · IaC</p>
+
+    <!-- Button that scrolls to Projects section -->
     <a href="#projects" class="btn">View Projects</a>
   </div>
 </header>
 
+<!-- ================= ABOUT ME SECTION ================= -->
 <section class="fade-in">
+  <!-- Section title -->
   <h2>About Me</h2>
+
+  <!-- Short professional description -->
   <p>I design, build, and maintain scalable infrastructure using modern DevOps practices.</p>
 </section>
 
+<!-- ================= TECH STACK SECTION ================= -->
 <section class="fade-in">
   <h2>Tech Stack</h2>
+
+  <!-- Grid layout for tech cards -->
   <div class="grid">
-    <div class="card"><h3>CI / CD</h3><p>Jenkins, GitHub Actions, GitLab CI</p></div>
-    <div class="card"><h3>Containers</h3><p>Docker, Docker Compose, Kubernetes</p></div>
-    <div class="card"><h3>Cloud</h3><p>AWS</p></div>
-    <div class="card"><h3>IaC</h3><p>Terraform, CloudFormation</p></div>
+
+    <!-- CI/CD card -->
+    <div class="card">
+      <h3>CI / CD</h3>
+      <p>Jenkins & GitHub Actions</p>
+    </div>
+
+    <!-- Containers card -->
+    <div class="card">
+      <h3>Containers</h3>
+      <p>Docker & Kubernetes</p>
+    </div>
+
+    <!-- Cloud card -->
+    <div class="card">
+      <h3>Cloud</h3>
+      <p>AWS</p>
+    </div>
+
+    <!-- Infrastructure as Code card -->
+    <div class="card">
+      <h3>IaC</h3>
+      <p>Terraform & CloudFormation</p>
+    </div>
   </div>
 </section>
 
+<!-- ================= TERMINAL SECTION ================= -->
 <section class="fade-in">
   <h2>Terminal</h2>
+
+  <!-- Fake terminal UI -->
   <div class="terminal" id="terminal">
-    <span class="prompt">$</span>&nbsp;<span id="command"></span><span class="cursor"></span>
+
+    <!-- Static prompt symbol -->
+    <span class="prompt">$</span>&nbsp;
+
+    <!-- Text typed dynamically using JavaScript -->
+    <span id="command"></span>
+
+    <!-- Blinking cursor -->
+    <span class="cursor"></span>
   </div>
 </section>
 
+<!-- ================= PROJECTS SECTION ================= -->
 <section id="projects" class="fade-in">
   <h2>Projects</h2>
+
+  <!-- Grid layout for project cards -->
   <div class="grid">
-    <div class="card"><h3>CI/CD Pipeline</h3><p>Jenkins + Docker + AWS</p></div>
-    <div class="card"><h3>Kubernetes Platform</h3><p>Production-grade K8s cluster</p></div>
+
+    <!-- ===== CI/CD PROJECT CARD ===== -->
+    <div class="card project-card">
+      <h3>CI/CD Pipeline</h3>
+      <p>Jenkins + Docker + AWS</p>
+
+      <!-- Shown on hover -->
+      <div class="project-hover">
+        <a href="#" class="github-link">View GitHub →</a>
+      </div>
+    </div>
+
+    <!-- ===== THREE-TIER ARCHITECTURE PROJECT ===== -->
+    <div class="card project-card">
+      <h3>Three-Tier Architecture (IaC)</h3>
+
+      <!-- Project description -->
+      <p>
+        Designed and deployed a secure, scalable three-tier AWS architecture using Terraform (Infrastructure as Code).
+      </p>
+
+      <!-- Hover overlay with GitHub link -->
+      <div class="project-hover">
+        <a
+          href="https://github.com/itsknyy/terraform-3tier-architecture"
+          target="_blank"
+          class="github-link"
+        >
+          View GitHub →
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<footer class="fade-in">
-  <div class="socials">
-    <a href="https://github.com/itsknyy" target="_blank" aria-label="GitHub"><i data-lucide="github"></i></a>
-    <a href="https://linkedin.com/in/itskenish" target="_blank" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+
+  <!-- Social icons -->
+  <div class="footer-icons">
+
+    <!-- GitHub icon -->
+    <a href="https://github.com/itsknyy" target="_blank" aria-label="GitHub">
+      <i data-lucide="github"></i>
+    </a>
+
+    <!-- LinkedIn icon -->
+    <a href="https://linkedin.com/in/itskenish" target="_blank" aria-label="LinkedIn">
+      <i data-lucide="linkedin"></i>
+    </a>
   </div>
-  <div class="copyright">©2026 Kenish</div>
+
+  <!-- Footer text info -->
+  <div class="footer-meta">
+
+    <!-- Copyright -->
+    <div class="footer-copy">
+      © 2026 · Built by Kenish
+    </div>
+
+    <!-- AI vibe badge -->
+    <div class="footer-ai">
+      <i data-lucide="wand-2"></i>
+      <span>Vibe-coded · AI-assisted</span>
+    </div>
+
+  </div>
 </footer>
 
 </body>
