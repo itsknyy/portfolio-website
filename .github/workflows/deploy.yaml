@@ -18,6 +18,10 @@ permissions:
 # Jobs = tasks that GitHub Actions will run
 jobs:
   deploy:
+    # REQUIRED for GitHub Pages deployment
+    environment:
+      name: github-pages
+
     # OS for the virtual machine
     runs-on: ubuntu-latest
 
