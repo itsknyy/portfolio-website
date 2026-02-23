@@ -210,10 +210,16 @@ h2:hover::before {
 
 /* ================= GRID & CARDS ================= */
 .grid {
-  /* Responsive grid layout */
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:1fr;
   gap:1.5rem;
+}
+
+/* 2 projects per row on tablets and larger */
+@media (min-width:768px) {
+  .grid {
+    grid-template-columns:repeat(2,1fr);
+  }
 }
 
 .card {
